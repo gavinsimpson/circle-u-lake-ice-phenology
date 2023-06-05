@@ -39,7 +39,7 @@ output:
 * Lake ice data from [Global Lake and River Ice Phenology Database](http://nsidc.org/data/G01377.html)
 * Lake ice study joint work with Stefano Mezzini
 
-* <bit.ly/circle-u-2023>
+* [bit.ly/circle-u-2023]()
 
 <!-- ### Slides
 
