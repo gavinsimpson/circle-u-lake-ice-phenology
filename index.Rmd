@@ -36,10 +36,29 @@ output:
 
 ### Data
 
+.row[
+
+.col-8[
+
 * Lake ice data from [Global Lake and River Ice Phenology Database](http://nsidc.org/data/G01377.html)
 * Lake ice study joint work with Stefano Mezzini
 
 * [bit.ly/circle-u-2023]()
+
+]
+
+.col-4[
+
+.center[
+
+```{r, fig.align = "center", out.width="90%", echo=FALSE}
+knitr::include_graphics("resources/bit.ly_circle-u-2023.png")
+```
+]
+
+]
+
+]
 
 <!-- ### Slides
 
@@ -148,7 +167,7 @@ knitr::include_graphics("resources/wired-article-screen-grab.png")
 
 # Trends in lake ice phenology
 
-Magnuson *et al* (2000) &mdash, seminal study of trends in lake ice phenology
+Magnuson *et al* (2000) &mdash; seminal study of trends in lake ice phenology
 
 Confirmed by multiple follow-up studies
 
@@ -183,6 +202,8 @@ knitr::include_graphics("resources/animated-map.gif")
 * time to ice-on or ice-off positive & continuous
 
 * linear trends to estimate shifts in phenology
+
+* interest has turned to asking whether rates of change in lake ice phenology have changed
 ]
 
 .col-6[
@@ -409,19 +430,45 @@ Fitting a GAM involves finding the weights for the basis functions that produce 
 
 ---
 
-.center[
-```{r include-spatial-dates-figure, out.width = "80%"}
-knitr::include_graphics("resources/p-freeze-thaw.svg")
+# Model
+
+```{r eval=FALSE, echo=TRUE}
+pamm(ped_status ~
+    s(tend, bs = 'cr', k = 10) +
+    s(year, bs = 'cr', k = 10) +
+    s(tend, lake, bs = 'fs', k = 10) +
+    s(Year, lake, bs = 'fs', k = 10) +
+    s(long, lat, bs = 'ds', k = 20) +
+    ti(tend, Year, bs = 'cr', k = c(5, 5)) +
+    ti(tend, long, lat, bs = c('cr', 'ds'), d = c(1, 2), k = c(5, 5)) +
+    ti(Year, long, lat, bs = c('cr', 'ds'), d = c(1, 2), k = c(5, 5)),
+  data = freeze.na,
+  method = 'fREML', # fast restricted marginal likelihood
+  engine = 'bam',
+  # use mgcv::bam() for faster fitting
+  discrete = TRUE) # discretize the covariates for faster fitting
 ```
-]
+
+---
+class: inverse middle center subsection
+
+# Results
 
 ---
 
 # Results
 
+On average, _Eurasian_ lakes froze 17 days later and thawed 3 days earlier in 2010 than 1950
+
+On average, _North American_ lakes froze 25 days later and thawed 10 days earlier in 2010 than 1950
+
+Most of that change happened post 1995
+
+---
+
 .center[
-```{r include-spatial-freeze-figure, out.width = 550, out.height = 550}
-knitr::include_graphics("resources/hpam-spatial-freeze.svg")
+```{r include-spatial-dates-figure, out.width = "80%"}
+knitr::include_graphics("resources/p-freeze-thaw.svg")
 ```
 ]
 
@@ -459,5 +506,35 @@ knitr::include_graphics("resources/hpam-change-in-thaw-dates-map.png")
 
 # Summary
 
+* Time-to-event models are a statistically appropriate way to model lake ice phenology data
 
+* PAMMs are a flexible way to model data with non-linear trends in freeze/thaw dates
 
+* Avoids *ad hoc* choices regarding change points
+
+* Eurasian lakes froze 17 days later and thawed 3 days earlier (1950 vs 2010)
+
+* North America lakes froze 25 days later and thawed 10 days earlier (1950 vs 2010)
+
+* Most of that change occured after 1995
+
+---
+
+# Future work
+
+* Update our models to the latest database release
+
+* Estimate rates of change using derivatives of smooths
+
+* Extending models to include explanatory factors
+
+---
+
+# More 📷
+
+.center[
+
+```{r, fig.align = "center", out.width="60%"}
+knitr::include_graphics("resources/bit.ly_circle-u-2023.png")
+```
+]
