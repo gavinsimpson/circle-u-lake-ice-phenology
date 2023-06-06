@@ -4,7 +4,15 @@
 
 ## Stefano Mezzini (Department of Biology, University of British Columbia)
 
-### June 6, 2023
+### June 6&ndash;7, 2023
+
+### Citation and reuse
+
+If you make use of the presentation, please cite as:
+
+> Simpson, G. L., & Mezzini, S. (2023). Loss of lake ice cover in northern hemisphere lakes. Circle U Climate Change & Water Seminar. Humboldt Universität, Berlin, Germany, June 6, 2023.. https://doi.org/10.5281/zenodo.8007293
+
+Unless indicated otherwise, reuse of this presentation is licensed under a [Creative Commons By Attribution 4.0 licence](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 ## Slides
 
