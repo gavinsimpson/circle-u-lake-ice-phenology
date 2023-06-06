@@ -453,9 +453,9 @@ pamm(ped_status ~
 
 # Results
 
-On average, _Eurasian_ lakes froze 17 days later and thawed 3 days earlier in 2010 than 1950
+_Eurasian_ lakes froze 17 days later and thawed 3 days earlier in 2010 than 1950
 
-On average, _North American_ lakes froze 25 days later and thawed 10 days earlier in 2010 than 1950
+_North American_ lakes froze 25 days later and thawed 10 days earlier in 2010 than 1950
 
 Most of that change happened post 1995
 
@@ -501,7 +501,7 @@ knitr::include_graphics("resources/hpam-change-in-thaw-dates-map.png")
 
 # Summary
 
-* Time-to-event models are a statistically appropriate way to model lake ice phenology data
+* Time-to-event models are an appropriate way to model lake ice phenology data
 
 * PAMMs are a flexible way to model data with non-linear trends in freeze/thaw dates
 
