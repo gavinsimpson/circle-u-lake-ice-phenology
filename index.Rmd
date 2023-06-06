@@ -549,13 +549,13 @@ knitr::include_graphics("resources/hpam-change-in-thaw-dates-map.png")
 
 # Thank you & More 📷
 
-[gavin@anivet.au.dk]()
+Mail: gavin@anivet.au.dk
 
 [github.com/gavinsimpson/circle-u-lake-ice-phenology](https://github.com/gavinsimpson/circle-u-lake-ice-phenology)
 
 .center[
 
-```{r, fig.align = "center", out.width="50%"}
+```{r, fig.align = "center", out.width="45%"}
 knitr::include_graphics("resources/bit.ly_circle-u-2023.png")
 ```
 ]
