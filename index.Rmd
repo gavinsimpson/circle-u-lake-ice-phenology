@@ -221,15 +221,9 @@ knitr::include_graphics("resources/dates.svg")
 
 Follow-up times `->` Survival analysis model
 
-Piece-wise exponential model is essentially a Poisson GLM on transformed data &mdash; hazard rate is piece-wise constant within time intervals
-
---
+Piece-wise exponential model is essentially a Poisson GLM on transformed data
 
 Piece-wise exponential additive mixed model &mdash; PAMM
-
-Estimate hazard rate as a smooth function rather than a step function
-
-Can include all of *mgcv* 📦 tools for GAMs
 
 *pammtools* 📦 (Bender, Groll, Scheipl, 2018 *Statistical Modelling*)
 
