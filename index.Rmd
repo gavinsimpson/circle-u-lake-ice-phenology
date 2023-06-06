@@ -128,7 +128,7 @@ knitr::include_graphics("resources/建御名方神_-_Takeminakata.jpg")
 
 The ice record at Lake Suwa, Nagano Prefecture, Japan, is the oldest known human-observed climate record in the world, ice formation dates from 1443
 
-Omiwatari or ice ridges form on the lake as pressure ridges that arise due to vertical thermal temperature gradients in the lake
+Omiwatari or ice ridges form on the lake as pressure ridges that arise due to vertical thermal gradients in the lake
 
 Local Shinto tradition holds that these Omiwatari &mdash; or God's Crossing &mdash; are formed by God's crossing Lake Suwa to move between the buildings of the Suwa Grand Shrine
 
@@ -163,6 +163,14 @@ knitr::include_graphics("resources/wired-article-screen-grab.png")
 
 ]
 
+???
+
+Such records have been collected globally, principally in the Northern hemisphere, for decades to centuries for a host of economical, recreational, and religious reasons
+
+This is because lake and river ice supports a wide range of activities
+
+Lake ice is very sensitive to changes in climate (esp. temperature) and as such they are excellent indicators of climate change
+
 ---
 
 # Trends in lake ice phenology
@@ -183,13 +191,19 @@ Magnuson et al. (2000) observed long-term changes in lake ice cover in 20 spatia
 
 ---
 
-# Global Lake and River Ice Phenology DB
+# Global Lake and River Ice Phenology
 
 .center[
 ```{r include-map-figure, out.width = 550, out.height = 550}
 knitr::include_graphics("resources/animated-map.gif")
 ```
 ]
+
+???
+
+Global Lake and River Ice Phenology Database
+
+We worked with 568 lakes & 628 observational records with data post 1950
 
 ---
 
@@ -199,7 +213,7 @@ knitr::include_graphics("resources/animated-map.gif")
 
 .col-6[
 
-* time to ice-on or ice-off positive & continuous
+* time to ice-on or ice-off positive, continuous, skewed
 
 * linear trends to estimate shifts in phenology
 
@@ -214,6 +228,16 @@ knitr::include_graphics("resources/dates.svg")
 ]
 ]
 ]
+
+???
+
+Original analyses grappled with the problem that the day of year of freezing spanned the start/end of the calendar year
+
+A solution is to turn the data into time (days) to event (freezing)
+
+Such data are necessarily positive, continuous, and skewed
+
+Additionally, trends have been represented as linear models, which while perhaps OK for shorter time series are not useful for capturing the non-linear trends typically present in longer records or for asking more nuanced questions as to whether rates of change in ice loss are themselves changing
 
 ---
 
@@ -322,10 +346,13 @@ smooth_funs <- animate(
 anim_save('resources/spline-anim.gif', smooth_funs)
 ```
 
----
-class: inverse middle center subsection
+???
 
-# GAMs use splines
+Example is for Lake Mendota, with the days post June 30th of lake freezing shown in the upper left panel, superimposed is the estimated day of freezing from the PAMM
+
+To fit the PAMM we convert the data to Piece-wise exponential form by breaking the follow-up period within lake ice season (year) into essentially daily steps based on events in record
+
+We model `tend` for within season hazard, and the longer-term trend is modelled as a smooth of year, the effects of which are allowed to smoothly interact, using GAMs and splines
 
 ---
 
@@ -438,10 +465,11 @@ pamm(ped_status ~
     ti(Year, long, lat, bs = c('cr', 'ds'), d = c(1, 2), k = c(5, 5)),
   data = freeze.na,
   method = 'fREML', # fast restricted marginal likelihood
-  engine = 'bam',
-  # use mgcv::bam() for faster fitting
-  discrete = TRUE) # discretize the covariates for faster fitting
+  engine = 'bam',   # use mgcv::bam() for faster fitting
+  discrete = TRUE)  # discretize the covariates for faster fitting
 ```
+
+Fit North American and Eurasian lakes in separate models
 
 ---
 
@@ -519,7 +547,7 @@ knitr::include_graphics("resources/hpam-change-in-thaw-dates-map.png")
 
 ---
 
-# More 📷
+# Thank you & More 📷
 
 .center[
 
