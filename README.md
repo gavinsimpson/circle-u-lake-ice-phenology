@@ -1,10 +1,10 @@
 # Loss of lake ice cover in northern hemisphere lakes
 
-## Gavin Simpson (Department of Animal and Veterinary Sciences, Aarhus University)
+### Gavin Simpson (Department of Animal and Veterinary Sciences, Aarhus University)
 
-## Stefano Mezzini (Department of Biology, University of British Columbia)
+### Stefano Mezzini (Department of Biology, University of British Columbia)
 
-### June 6&ndash;7, 2023
+#### June 6&ndash;7, 2023
 
 ### Citation and reuse
 
