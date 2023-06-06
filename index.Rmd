@@ -258,7 +258,7 @@ hazard rate is piece-wise constant within time intervals but we estimate it semi
 
 ---
 
-# PAMMs
+# PAMMs &mdash; Lake Mendota
 
 .center[
 ```{r include-mendota-figure}
